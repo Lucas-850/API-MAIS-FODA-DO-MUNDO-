@@ -1,6 +1,7 @@
 from db import engine
-from models import Base
+from models import Base, User, Task  # IMPORTANTE: garantir que User e Task foram carregados
 
-if __name__ == "__main__":
-    Base.metadata.create_all(bind=engine)
-    print("Tabelas criadas ")
+Base.metadata.create_all(bind=engine)
+
+print("Tabelas no metadata:", list(Base.metadata.tables.keys()))
+print("Tabelas criadas/garantidas no banco.")
