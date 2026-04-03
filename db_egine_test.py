@@ -1,6 +1,10 @@
 from sqlalchemy import create_engine, text
+from dotenv import load_dotenv
+import os
 
-DATABASE_URL = 'mysql+pymysql://appuser:SenhaForteAqui@127.0.0.1:3306/appdb?charset=utf8mb4'
+load_dotenv()
+
+DATABASE_URL = os.getenv('SQLITE_URL')
 
 engine = create_engine(
     DATABASE_URL,
